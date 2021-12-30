@@ -82,8 +82,8 @@ public class JpaMain2 {
 //            Member member = em.find(Member.class, 1L); //select 쿼리는 즉시 나간다.
 //            System.out.println("================");
 
-            Member member = new Member(1L, "JPA");
-            em.persist(member);
+//            Member member = new Member(1L, "JPA");
+//            em.persist(member);
             tx.commit();
 
         } catch (Exception e) {
