@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-@Entity
+//@Entity
 @Setter @Getter
 public class NewMember {
     @Id

@@ -7,23 +7,19 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter
-@Table(name = "MEMBER", uniqueConstraints = {@UniqueConstraint(
-        name = "NAME_AGE_UNIQUE",
-        columnNames = {"NAME", "AGE"}
-)})
 public class Member {
 
-    @Id
+    @Id @GeneratedValue
+    @Column(name = "MEMBER_ID")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "USERNAME")
     private String name;
 
-    public Member() {
-    }
+//    @Column(name = "TEAM_ID")
+//    private Long teamId;
 
-    public Member(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 }

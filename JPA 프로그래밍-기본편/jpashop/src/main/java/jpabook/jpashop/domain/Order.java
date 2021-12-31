@@ -16,6 +16,6 @@ public class Order {
 
     private LocalDateTime orderDate;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private OrderStatus status;
 }

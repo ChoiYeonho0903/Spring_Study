@@ -20,7 +20,9 @@ public class ExamMergeMain {
         EntityTransaction tx1 = em1.getTransaction();
         tx1.begin();
 
-        Member member = new Member(id, username);
+        Member member = new Member();
+        member.setId(id);
+        member.setName(username);
 
         em1.persist(member);
         tx1.commit();
