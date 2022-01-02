@@ -9,16 +9,16 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class Team {
+public class Product {
 
     @Id @GeneratedValue
-    @Column(name = "TEAM_ID")
     private Long id;
 
     private String name;
 
-//    @OneToMany(mappedBy = "team") //Member class의 team 변수와 연관관계 매핑되어있다.
-    @OneToMany
-    @JoinColumn(name = "TEAM_ID")
-    private List<Member> members = new ArrayList<>();
+//    @ManyToMany(mappedBy = "products")
+//    private List<Member> members = new ArrayList<>();
+
+//    @OneToMany(mappedBy = "product")
+//    private List<MemberProduct> memberProducts = new ArrayList<>();
 }
