@@ -17,8 +17,8 @@ public class Team {
 
     private String name;
 
-//    @OneToMany(mappedBy = "team") //Member class의 team 변수와 연관관계 매핑되어있다.
-    @OneToMany
-    @JoinColumn(name = "TEAM_ID")
+    @OneToMany(mappedBy = "team") //Member class의 team 변수와 연관관계 매핑되어있다.
+//    @OneToMany
+//    @JoinColumn(name = "TEAM_ID")
     private List<Member> members = new ArrayList<>();
 }

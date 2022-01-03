@@ -20,9 +20,9 @@ public class Member extends BaseEntity{
     private String name;
 
 
-//    @ManyToOne
-//    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false)
-//    private Team team;
+    @ManyToOne(fetch = FetchType.LAZY) //프록시객체로 조회한다.
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 
 //    @ManyToOne
 //    @JoinColumn(name = "TEAM_ID")

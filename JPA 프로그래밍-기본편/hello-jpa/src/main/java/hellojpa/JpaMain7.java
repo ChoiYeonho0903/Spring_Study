@@ -11,26 +11,26 @@ public class JpaMain7 {
         tx.begin();
 
         try {
-//            Movie movie = new Movie();
-//            movie.setDirector("a");
-//            movie.setActor("b");
-//            movie.setName("c");
-//            movie.setPrice(1000);
-//            em.persist(movie);
-//
-//            em.flush();
-//            em.clear();
-//
-//            Movie findMovie = em.find(Movie.class, movie.getId());
-//            System.out.println(findMovie);
+            Movie movie = new Movie();
+            movie.setDirector("a");
+            movie.setActor("b");
+            movie.setName("c");
+            movie.setPrice(1000);
+            em.persist(movie);
 
-//            @MappedSuperclass
-            Member member = new Member();
-            member.setName("user1");
-            member.setCreatedBy("kim");
-            member.setCreatedDate(LocalDateTime.now());
+            em.flush();
+            em.clear();
 
-            em.persist(member);
+            Movie findMovie = em.find(Movie.class, movie.getId());
+            System.out.println(findMovie);
+
+////            @MappedSuperclass
+//            Member member = new Member();
+//            member.setName("user1");
+//            member.setCreatedBy("kim");
+//            member.setCreatedDate(LocalDateTime.now());
+//
+//            em.persist(member);
 
             tx.commit();
         } catch (Exception e) {
