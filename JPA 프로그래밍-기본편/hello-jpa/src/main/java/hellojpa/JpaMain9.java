@@ -25,7 +25,7 @@ public class JpaMain9 {
 //            member2.setName("member2");
 //            member2.setHomeAddress(copyAddress);
 //            em.persist(member2);
-
+//
 //            member.getHomeAddress().setCity("newCity");
 
 //            //setter를 닫아준다. => 바꿔주기
@@ -41,8 +41,8 @@ public class JpaMain9 {
             member.getFavoriteFoods().add("피자");
             member.getFavoriteFoods().add("족발");
 
-            member.getAddressHistory().add(new AddressEntity("old1", "street", "100"));
-            member.getAddressHistory().add(new AddressEntity("old2", "street", "100"));
+            member.getAddressHistory().add(new Address("old1", "street", "100"));
+            member.getAddressHistory().add(new Address("old2", "street", "100"));
             em.persist(member); //컬렉션 또한 값타입의 하나이다 값타입의 생명주기는 Member에 의존한다.
 
             em.flush();
@@ -71,13 +71,13 @@ public class JpaMain9 {
 //            //치킨 -> 한식
 //            findMember.getFavoriteFoods().remove("치킨");
 //            findMember.getFavoriteFoods().add("한식");
-
-            //old1 -> newCity
-            findMember.getAddressHistory().remove(new AddressEntity("old1", "street", "100"));
-            //전체 테이블 삭제
-            findMember.getAddressHistory().add(new AddressEntity("newCity1", "street", "100"));
-            //insert 두번이 날라간다.
-            //old2, newCity 두번 날라간다.
+//
+//            //old1 -> newCity
+//            findMember.getAddressHistory().remove(new AddressEntity("old1", "street", "100"));
+//            //전체 테이블 삭제
+//            findMember.getAddressHistory().add(new AddressEntity("newCity1", "street", "100"));
+//            //insert 두번이 날라간다.
+//            //old2, newCity 두번 날라간다.
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
