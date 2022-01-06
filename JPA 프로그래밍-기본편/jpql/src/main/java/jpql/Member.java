@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter @Setter
@@ -19,6 +20,9 @@ public class Member {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TEAM")
     private Team team;
+
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders;
 
     @Enumerated(EnumType.STRING)
     private MemberType memberType;

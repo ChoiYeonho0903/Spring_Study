@@ -74,14 +74,14 @@ public class JpaMain {
 //                    .getResultList();
 
 //            Query 사용
-            List resultList = em.createQuery("select  m.username, m.age from Member as m")
-                    .getResultList();
-            Iterator iterator = resultList.iterator();
-            while (iterator.hasNext()) {
-                Object[] result = (Object[]) iterator.next();
-                String username = (String) result[0];
-                Integer age = (Integer) result[1];
-            }
+//            List resultList = em.createQuery("select  m.username, m.age from Member as m")
+//                    .getResultList();
+//            Iterator iterator = resultList.iterator();
+//            while (iterator.hasNext()) {
+//                Object[] result = (Object[]) iterator.next();
+//                String username = (String) result[0];
+//                Integer age = (Integer) result[1];
+//            }
 //            //TypeQuery 사용
 //            List<Object[]> resultList = em.createQuery("select  m.username, m.age from Member as m")
 //                    .getResultList();
@@ -90,14 +90,15 @@ public class JpaMain {
 //                Integer age = (Integer) result[1];
 //            }
 
-            //new 명령어 조회 => 가장 깔끔.
-            List<MemberDTO> result = em.createQuery("select new jpql.MemberDTO(m.username, m.age) from Member as m", MemberDTO.class)
-                    .getResultList();
-            MemberDTO memberDTO = result.get(0);
-            System.out.println(memberDTO.getUsername());
-            System.out.println(memberDTO.getAge());
+//            //new 명령어 조회 => 가장 깔끔.
+//            List<MemberDTO> result = em.createQuery("select new jpql.MemberDTO(m.username, m.age) from Member as m", MemberDTO.class)
+//                    .getResultList();
+//            for (MemberDTO memberDTO : result) {
+//                System.out.println(memberDTO.getUsername());
+//                System.out.println(memberDTO.getAge());
+//            }
 
-//            //페이징
+////            //페이징
 //            List<Member> result = em.createQuery("select m from Member m order by m.age desc", Member.class)
 //                    .setFirstResult(1)
 //                    .setMaxResults(10)
@@ -174,6 +175,15 @@ public class JpaMain {
 //            List result = em.createQuery(query, Collection.class).getResultList();
 //            for (Object s : result) {
 //                System.out.println(s);
+//            }
+
+            List<String> result = em.createQuery("select m.username from Member m", String.class).getResultList();
+            for (String s : result) {
+                System.out.println(s);
+            }
+//            List<Team> result = em.createQuery("select m.team from Member m", Team.class).getResultList();
+//            for (Team team1 : result) {
+//                System.out.println(team1.getName());
 //            }
             tx.commit();
         } catch (Exception e) {
