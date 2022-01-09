@@ -103,4 +103,24 @@ public class OrderRepository {
     }
 
 
+    public List<Order> findAllWithItem() {
+        return em.createQuery( //distinct 같은 id 값이면 하나를 버린다.
+                "select DISTINCT o from Order o " +
+                "join fetch o.member m " +
+                "join fetch o.delivery d " +
+                "join fetch o.orderItems oi " +
+                "join fetch oi.item i", Order.class)
+                .getResultList();
+    }
+
+    public List<Order> findAllWithMemberDelivery(int offset, int limit) {
+        String query = "select o from Order o " +
+                "join fetch o.member m " +
+                "join fetch o.delivery d";
+        List<Order> result = em.createQuery(query, Order.class)
+                .setFirstResult(offset)
+                .setMaxResults(limit)
+                .getResultList();
+        return result;
+    }
 }
