@@ -1,4 +1,4 @@
-package hello.core.Member;
+package hello.core.member;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
