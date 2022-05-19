@@ -1,0 +1,19 @@
+package study.data.jpa.repository;
+
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import lombok.RequiredArgsConstructor;
+import study.data.jpa.entity.Member;
+
+@RequiredArgsConstructor
+public class MemberRepositoryCustomImpl implements MemberRepositoryCustom {
+
+    private final EntityManager em;
+
+    @Override
+    public List<Member> findMemberCustom() {
+        return em.createQuery("select m from Member m")
+            .getResultList();
+    }
+}
