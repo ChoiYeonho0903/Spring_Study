@@ -1,0 +1,22 @@
+package study.data.jpa.repository;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.apache.tomcat.util.http.fileupload.FileItemStream.ItemSkippedException;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import study.data.jpa.entity.Item;
+
+@SpringBootTest
+class ItemRepositoryTest {
+
+    @Autowired
+    ItemRepository itemRepository;
+
+    @Test
+    public void save() {
+        Item item = new Item("A");
+        itemRepository.save(item);
+    }
+}
