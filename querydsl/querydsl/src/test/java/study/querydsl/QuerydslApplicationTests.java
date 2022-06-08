@@ -19,7 +19,7 @@ import study.querydsl.entity.QHello;
 @Commit
 class QuerydslApplicationTests {
 
-    @Autowired
+    @PersistenceContext
     EntityManager em;
 
     @Test

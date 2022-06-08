@@ -18,6 +18,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -38,7 +39,7 @@ import study.querydsl.entity.Team;
 @Transactional
 public class QuerydslBasicTest {
 
-    @Autowired
+    @PersistenceContext
     EntityManager em;
 
     JPAQueryFactory queryFactory;
